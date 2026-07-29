@@ -1,7 +1,9 @@
-export async function GET(request: Request) {
-  const url = new URL(request.url);
-  const origin = `${url.protocol}//${url.host}`;
+export const dynamic = "force-static";
 
+export function GET() {
+  const origin =
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    "https://amitesh2022.github.io/belleza-salon-indore";
   return new Response(
     `User-agent: *
 Allow: /

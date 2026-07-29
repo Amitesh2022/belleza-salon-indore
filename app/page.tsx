@@ -70,7 +70,7 @@ const jsonLd = {
     "Family hair and beauty salon near D-Mart in Chota Bangarda, Indore, offering haircuts, styling, colour, hair spa, makeup, skin care and nail services.",
   telephone: "+91-78794-12318",
   priceRange: "₹₹",
-  image: "/og.png",
+  image: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://amitesh2022.github.io/belleza-salon-indore"}/og.png`,
   address: {
     "@type": "PostalAddress",
     streetAddress:

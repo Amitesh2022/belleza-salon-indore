@@ -1,20 +1,12 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import "./globals.css";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host =
-    requestHeaders.get("x-forwarded-host") ??
-    requestHeaders.get("host") ??
-    "belleza-salon-indore.sites.openai.com";
-  const protocol =
-    requestHeaders.get("x-forwarded-proto") ??
-    (host.includes("localhost") ? "http" : "https");
-  const baseUrl = new URL(`${protocol}://${host}`);
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://amitesh2022.github.io/belleza-salon-indore";
 
-  return {
-    metadataBase: baseUrl,
+export const metadata: Metadata = {
+    metadataBase: new URL(siteUrl),
     title: {
       default:
         "Belleza Salon | Haircut & Beauty Salon in Chota Bangarda, Indore",
@@ -47,7 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
         "Your neighbourhood family salon near D-Mart, Chota Bangarda, Indore.",
       images: [
         {
-          url: new URL("/og.png", baseUrl).toString(),
+          url: `${siteUrl.replace(/\/$/, "")}/og.png`,
           width: 1200,
           height: 630,
           alt: "Belleza Salon in Chota Bangarda, Indore",
@@ -59,7 +51,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: "Belleza Salon | Hair • Beauty • Makeup",
       description:
         "Family salon near D-Mart, Chota Bangarda, Indore.",
-      images: [new URL("/og.png", baseUrl).toString()],
+      images: [`${siteUrl.replace(/\/$/, "")}/og.png`],
     },
     robots: {
       index: true,
@@ -72,8 +64,7 @@ export async function generateMetadata(): Promise<Metadata> {
         "max-video-preview": -1,
       },
     },
-  };
-}
+};
 
 export default function RootLayout({
   children,
