@@ -1,0 +1,13 @@
+{
+  "name": "Belleza Salon",
+  "short_name": "Belleza",
+  "description": "Family hair and beauty salon near D-Mart, Chota Bangarda, Indore.",
+  "icons": [
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ],
+  "theme_color": "#54243e",
+  "background_color": "#fbf5eb",
+  "display": "standalone",
+  "start_url": "."
+}
