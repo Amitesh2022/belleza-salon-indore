@@ -6,11 +6,16 @@ export function GET() {
     "https://amitesh2022.github.io/belleza-salon-indore";
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${origin}/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+<url>
+<loc>${origin}/</loc>
+<changefreq>weekly</changefreq>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>${origin}/price-list/</loc>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
 </urlset>`;
 
   return new Response(xml, {
